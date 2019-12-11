@@ -64,7 +64,10 @@ public class MyTest {
 			Date parse = sdf.parse(str);
 			Calendar instance = Calendar.getInstance();
 			instance.setTime(parse);
-			com.hq.common.utils.DateUtil.setToLastDateOfMonth(instance);
+			Calendar lastDay = DateUtil.initLastDay(instance);
+			Date time = lastDay.getTime();
+			String format = sdf.format(time);
+			System.out.println(format);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
